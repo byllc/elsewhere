@@ -15,3 +15,6 @@ r.commands << "rake do:something:useful"
 
 r.execute
 ```
+
+#Notes:
+   I'm still in the process of adding some tests and porting this over to a gem but the core library is used in a working project

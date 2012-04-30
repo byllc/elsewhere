@@ -98,7 +98,9 @@ module Elsewhere
 end
 
 if __FILE__ == $0
-  r = RemoteRun.new("wa-etl-q0","wa-current")
-  r.commands << "LSOFs"
+  host = ""
+  user = ""
+  r = RemoteRun.new(host,user)
+  r.commands << "ls"
   puts r.execute
 end

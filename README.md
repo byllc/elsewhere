@@ -14,6 +14,8 @@ r.commands << "cd ~/current"
 r.commands << "rake do:something:useful"
 
 r.execute
+
+=> { "www.example.com" => "results from data stream"}
 ```
 
 #Notes:

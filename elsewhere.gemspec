@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Elsewhere::VERSION
   s.authors     = ["Bill Chapman"]
   s.email       = ["bchapman@academicmanagement.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/byllc/elsewhere"
   s.summary     = %q{ Simple wrapper for Net SSH to run a list of commands remotely }
   s.description = %q{ Yet another way to run stuff remotely }
 

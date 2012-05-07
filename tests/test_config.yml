@@ -1,0 +1,10 @@
+test:
+  test_group:
+    host: www.example.com
+    user: test_user
+  test_group_with_gateway:
+    host: www.example.com
+    user: test_user
+    gateway:
+      host: www.examplegateway.com
+      user: test_user

@@ -1,18 +1,18 @@
 module Elsewhere
 
-# Execute commands on a remote server
-# I know capistrano already does this
-# This was abstracted from a more specific solution that we already had in place and I thought it was worth sharing
-# 
-# Usage:
-#
-#   r = RemoteRun.new("hostname","username")
-#   r.commands << "source /etc/profile"
-#   r.commands << "cd ~/current"
-#   r.commands << "rake extractor:run cas=3 users=12550"
-# 
-#   r.execute
-#
+  # Execute commands on a remote server
+  # I know capistrano already does this
+  # This was abstracted from a more specific solution that we already had in place and I thought it was worth sharing
+  # 
+  # Usage:
+  #
+  #   r = RemoteRun.new("hostname","username")
+  #   r.commands << "source /etc/profile"
+  #   r.commands << "cd ~/current"
+  #   r.commands << "rake extractor:run cas=3 users=12550"
+  # 
+  #   r.execute
+  #
   require 'net/ssh' 
   require 'net/ssh/gateway'
   require 'yaml'
@@ -21,7 +21,7 @@ module Elsewhere
     #TODO: move to remote_run/exceptions.rb when we gemify this
     class RemoteRunError < StandardError; end
     
-    attr_accessor :hosts, :gateway_address, :gateway_user, :commands
+    attr_accessor :hosts, :user, :gateway_address, :gateway_user, :commands
     
     def initialize(hosts,user, options={})
       @hosts        = [hosts].flatten #accept a single host or an array of hosts 
@@ -103,9 +103,9 @@ module Elsewhere
 end
 
 if __FILE__ == $0
-  host = ""
-  user = ""
-  r = RemoteRun.new(host,user)
+  host = "wa-app-q0"
+  user = "wa-current"
+  r = Elsewhere::RemoteRun.new(host,user)
   r.commands << "ls"
   puts r.execute
 end

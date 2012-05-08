@@ -13,7 +13,11 @@ r.commands << "source /etc/profile"
 r.commands << "cd ~/current"
 r.commands << "rake do:something:useful"
 
+#fails silently
 r.execute
+
+#raises exception on nonzero status codes
+r.execute!
 
 => { "www.example.com" => "results from data stream"}
 ```

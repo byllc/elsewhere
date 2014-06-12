@@ -138,13 +138,3 @@ module Elsewhere
   
   end
 end
-
-if __FILE__ == $0
-  host = "wa-app-q0"
-  user = "wa-current"
-  r = Elsewhere::RemoteRun.new(host,user)
-  r.commands << "source /etc/profile"
-  r.commands << "cd ~/current"
-  r.commands << "bundle exec rake --trace transformer:run cas=3 queue=solo remote_run_id=1 ddcid=2013 exit=true RAILS_ENV=qa"
-  puts r.execute
-end
